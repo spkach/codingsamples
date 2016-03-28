@@ -1,0 +1,60 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+}
+
+.inputText{
+	color : #398CFF;
+}
+
+.inputText{
+	color : #398CFF;
+}
+
+/*Multi Select drop down*/
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+#wrapper {
+	padding: 15px;
+}
+		
+#select6 {
+	width: 440px;
+	height: 36px;
+}
+
+#projectDetails{
+	padding-left : 350px;
+}
+
+#submitBtn{
+	margin-top : 50px;
+	margin-left : 450px;
+}
+
+/*Multi Select drop down*/

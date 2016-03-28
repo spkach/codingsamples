@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<title>Agile Project Management</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/bouncymenustyle.css"> <!--Bouncy Menu style -->
+	<link rel="stylesheet" href="css/rotatingmenustyle.css"> <!-- Rotating Menu  style -->
+	<link rel="stylesheet" href="css/summary.css" />
+	<link rel="stylesheet" type="text/css" href="css/custom.css" />
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="js/validator.js"></script> <!-- Validator -->
+	<script src="js/card.js"></script>
+	<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+	<link rel="stylesheet" href="css/bootstrap-iso.css" /> 
+
+	<!--Font Awesome (added because you use icons in your prepend/append)-->
+	<link rel="stylesheet" href="css/font-awesome-4.4.0.min.css" />
+
+	<!-- Inline CSS based on choices in "Settings" tab -->
+	<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
+    </head>
+    <body>
+		<div class="col-lg-12 dragging-info" id="dragInfo-affix" data-spy="affix" data-offset-top="430">
+			<p align="center">Capture Project BackLogs</p>
+		</div>
+		
+		<header class="cd-header">
+			<a href="#0" class="cd-3d-nav-trigger">
+				Menu
+				<span></span>
+			</a>
+		</header> <!-- .cd-header -->
+	
+		<div class="cd-bouncy-nav-modal">
+		<nav>
+			<ul class="cd-bouncy-nav">
+				<li><a href="sample2.html">Projects</a></li>
+				<li><a href="#0">DashBoard</a></li>
+				<li><a href="#0">View</a></li>
+				<li><a href="#0">LogOut</a></li>
+				<li><a href="#0">About</a></li>
+				<li><a href="#0">LastVisited</a></li>
+			</ul>
+		</nav>
+		
+		<a href="#0" class="cd-close">Close modal</a>
+		</div> <!-- cd-bouncy-nav-modal -->
+		<div class="bootstrap-iso">
+			<form id = "projectForm" role="form" data-toggle="validator" method = "post">
+				<textarea id="txt1" placeholder="Enter Back Logs Info"></textarea>
+				<button type="button" id="moveitButton" class="btn btn-primary disabled">Add</button>
+				<button class="btn btn-primary btn-lg btn-success" type="submit" id="doneBtn">
+					Done
+				</button>
+			</form>
+		</div>
+		
+		<div class="row" id="rightSection">
+			<ul class="circle-list-ul clearfix" id="circle-list-ul"></ul>
+		</div>
+		
+		<nav class="cd-3d-nav-container">
+			<ul class="cd-3d-nav">
+				<li id="new" data-link="newproject.html">
+					<a href="#0">NewProject</a>
+				</li>
+
+				<li class="cd-selected" id="Summary" data-link="summary.html">
+					<a href="Summary.html">Summary</a>
+				</li>
+
+				<li id="Sprints" data-link="sprints.html">
+					<a href="sprint.html">Sprints</a>
+				</li>
+			</ul> <!-- .cd-3d-nav -->
+
+			<span class="cd-marker color-1"></span>	
+		</nav> <!-- .cd-3d-nav-container -->
+    </body>
+</html>

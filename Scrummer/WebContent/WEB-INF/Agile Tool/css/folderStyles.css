@@ -1,0 +1,634 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+/*-------------------------
+	General Styles
+--------------------------*/
+
+body{
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+	background-color:transparent;
+}
+
+a{
+	outline:none;
+	color:#1c4f64;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header{
+	display: block;
+}
+
+#s_main{
+	width:575px;
+	text-align:center;
+	
+	position:absolute;
+	top:50px;
+	left:50%;
+	width:500px;
+	height:500px;
+	margin:0 0 0 -250px;
+}
+
+#m_main{
+	width:575px;
+	text-align:center;
+	
+	position:absolute;
+	top:50px;
+	left:50%;
+	width:500px;
+	height:500px;
+	margin:0 0 0 -250px;
+}
+#l_main{
+	width:575px;
+	text-align:center;
+	
+	position:absolute;
+	top:50px;
+	left:50%;
+	width:500px;
+	height:500px;
+	margin:0 0 0 -250px;
+}
+#xl_main{
+	width:575px;
+	text-align:center;
+	
+	position:absolute;
+	top:50px;
+	left:50%;
+	width:500px;
+	height:500px;
+	margin:0 0 0 -250px;
+}
+
+/*----------------------------
+	CSS3 Folder
+-----------------------------*/
+
+.hidden{
+	display:none;
+}
+.unhidden{
+	display:block;
+}
+#txt1{
+	width:400px;
+	height:50px;
+	position:absolute;
+	top:50px;
+	left:30px;
+	resize: none;
+}
+#div2{
+	width:80px;
+	height:30px;
+	background-color:green;
+	position:absolute;
+	top:50px;
+	left:800px;
+}
+#moveitButton{
+	position:absolute;
+	top:160px;
+	left:460px;
+}
+#txt1{
+	position:absolute;
+	top:160px;
+}
+
+#doneBtn{
+	position:absolute;
+	top:70%;
+	left:30%;
+}
+
+#preview{
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:30%;
+	left:25%;
+}
+#tmptxt{
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:130px;
+	left:30px;
+}
+
+
+.small-folder {
+	/* This will enable the 3D effect. Decrease this value 
+	 * to make the perspective more pronounced: */
+	
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	perspective: 800px;
+	
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	z-index: 0;
+	
+	width: 160px;
+	height: 120px;
+	margin: -100px 0 0 -60px;
+}
+
+.medium-folder {
+	/* This will enable the 3D effect. Decrease this value 
+	 * to make the perspective more pronounced: */
+	
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	perspective: 800px;
+	
+	position: absolute;
+	top: 38%;
+	left: 50%;
+	z-index: 0;
+	
+	width: 160px;
+	height: 120px;
+	margin: -100px 0 0 -60px;
+}
+
+.large-folder {
+	/* This will enable the 3D effect. Decrease this value 
+	 * to make the perspective more pronounced: */
+	
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	perspective: 800px;
+	
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	z-index: 0;
+	
+	width: 160px;
+	height: 150px;
+	margin: -100px 0 0 -60px;
+}
+
+.extra-large-folder {
+	/* This will enable the 3D effect. Decrease this value 
+	 * to make the perspective more pronounced: */
+	
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	perspective: 800px;
+	
+	position: absolute;
+	top: 95%;
+	left: 50%;
+	z-index: 0;
+	
+	width: 160px;
+	height: 120px;
+	margin: -100px 0 0 -60px;
+}
+
+.small-folder div{
+    width:85px;
+    height:70px;
+    
+    background-color:#66CD00;
+    
+    /* Enabling 3d space for the transforms */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    /* Enabling a smooth animated transition */
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    transition:0.5s;
+    
+    /* Disable text seleltion on the folder */
+    -webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+    
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-75px;
+}
+
+.medium-folder div{
+    width:120px;
+    height:90px;
+    
+    background-color:#FF0000;
+    
+    /* Enabling 3d space for the transforms */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    /* Enabling a smooth animated transition */
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    transition:0.5s;
+    
+    /* Disable text seleltion on the folder */
+    -webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+    
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-75px;
+}
+
+.large-folder div{
+    width:160px;
+    height:100px;
+    
+    background-color:#FF8600;
+    
+    /* Enabling 3d space for the transforms */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    /* Enabling a smooth animated transition */
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    transition:0.5s;
+    
+    /* Disable text seleltion on the folder */
+    -webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+    
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-75px;
+}
+
+.extra-large-folder div{
+    width:195px;
+    height:115px;
+    
+    background-color:#93bad8;
+    
+    /* Enabling 3d space for the transforms */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    /* Enabling a smooth animated transition */
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    transition:0.5s;
+    
+    /* Disable text seleltion on the folder */
+    -webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+    
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-75px;
+}
+.small-folder .s_front{
+    border-radius:5px 5px 0 0;
+    
+    -moz-transform:rotateX(-30deg);
+    -webkit-transform:rotateX(-30deg);
+    transform:rotateX(-30deg);
+    
+    -moz-transform-origin:50% 100%;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%;
+    
+    background-image: -moz-linear-gradient(top, #66CD00 0%, #66CD00 85%, #66CD00 100%);
+    background-image: -webkit-linear-gradient(top, #66CD00 0%, #66CD00 85%, #66CD00 100%);
+    background-image: linear-gradient(top, #66CD00 0%, #66CD00 85%, #66CD00 100%);
+    
+    box-shadow:0 -2px 2px rgba(0,0,0,0.1), 0 1px rgba(255,255,255,0.35) inset;
+    
+    z-index:10;
+    
+    font: bold 26px sans-serif;
+	color: #000000;
+	text-align: center;
+	vertical-align : middle;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+	line-height: 75px;
+}
+
+.medium-folder .m_front{
+    border-radius:5px 5px 0 0;
+    
+    -moz-transform:rotateX(-30deg);
+    -webkit-transform:rotateX(-30deg);
+    transform:rotateX(-30deg);
+    
+    -moz-transform-origin:50% 100%;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%;
+    
+    background-image: -moz-linear-gradient(top, #FF0000 0%, #FF0000 85%, #FF0000 100%);
+    background-image: -webkit-linear-gradient(top, #FF0000 0%, #FF0000 85%, #FF0000 100%);
+    background-image: linear-gradient(top, #FF0000 0%, #FF0000 85%, #FF0000 100%);
+    
+    box-shadow:0 -2px 2px rgba(0,0,0,0.1), 0 1px rgba(255,255,255,0.35) inset;
+    
+    z-index:10;
+    
+    font: bold 26px sans-serif;
+	color: #000000;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+	line-height: 95px;
+}
+
+.large-folder .l_front{
+    border-radius:5px 5px 0 0;
+    
+    -moz-transform:rotateX(-30deg);
+    -webkit-transform:rotateX(-30deg);
+    transform:rotateX(-30deg);
+    
+    -moz-transform-origin:50% 100%;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%;
+    
+    background-image: -moz-linear-gradient(top, #FF8600 0%, #FF8600 85%, #FF8600 100%);
+    background-image: -webkit-linear-gradient(top, #FF8600 0%, #FF8600 85%, #FF8600 100%);
+    background-image: linear-gradient(top, #FF8600 0%, #FF8600 85%, #FF8600 100%);
+    
+    box-shadow:0 -2px 2px rgba(0,0,0,0.1), 0 1px rgba(255,255,255,0.35) inset;
+    
+    z-index:10;
+    
+    font: bold 26px sans-serif;
+	color: #000000;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+	line-height: 105px;
+}
+
+.extra-large-folder .xl_front{
+    border-radius:5px 5px 0 0;
+    
+    -moz-transform:rotateX(-30deg);
+    -webkit-transform:rotateX(-30deg);
+    transform:rotateX(-30deg);
+    
+    -moz-transform-origin:50% 100%;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%;
+    
+    background-image: -moz-linear-gradient(top, #93bad8 0%, #6c9dc0 85%, #628faf 100%);
+    background-image: -webkit-linear-gradient(top, #93bad8 0%, #6c9dc0 85%, #628faf 100%);
+    background-image: linear-gradient(top, #93bad8 0%, #6c9dc0 85%, #628faf 100%);
+    
+    box-shadow:0 -2px 2px rgba(0,0,0,0.1), 0 1px rgba(255,255,255,0.35) inset;
+    
+    z-index:10;
+    
+    font: bold 26px sans-serif;
+	color: #000000;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+	line-height: 115px;
+}
+
+.small-folder .s_back{
+    background-image: -webkit-linear-gradient(top, #66CD00 0%, #66CD00 10%, #66CD00 60%);
+    background-image: -moz-linear-gradient(top, #66CD00 0%, #66CD00 10%, #66CD00 60%);
+    background-image: linear-gradient(top, #66CD00 0%, #66CD00 10%, #66CD00 60%);
+    
+    border-radius:0 5px 0 0;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.medium-folder .m_back{
+    background-image: -webkit-linear-gradient(top, #FF0000 0%, #FF0000 10%, #FF0000 60%);
+    background-image: -moz-linear-gradient(top, #FF0000 0%, #FF0000 10%, #FF0000 60%);
+    background-image: linear-gradient(top, #FF0000 0%, #FF0000 10%, #FF0000 60%);
+    
+    border-radius:0 5px 0 0;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.large-folder .l_back{
+    background-image: -webkit-linear-gradient(top, #FF8600 0%, #FF8600 10%, #FF8600 60%);
+    background-image: -moz-linear-gradient(top, #FF8600 0%, #FF8600 10%, #FF8600 60%);
+    background-image: linear-gradient(top, #FF8600 0%, #FF8600 10%, #FF8600 60%);
+    
+    border-radius:0 5px 0 0;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.extra-large-folder .xl_back{
+    background-image: -webkit-linear-gradient(top, #93bad8 0%, #89afcc 10%, #5985a5 60%);
+    background-image: -moz-linear-gradient(top, #93bad8 0%, #89afcc 10%, #5985a5 60%);
+    background-image: linear-gradient(top, #93bad8 0%, #89afcc 10%, #5985a5 60%);
+    
+    border-radius:0 5px 0 0;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.small-folder .s_back:before{
+    content:'';
+    width:60px;
+    height:10px;
+    border-radius:4px 4px 0 0;
+    background-color:#66CD00;
+    position:absolute;
+    top:-10px;
+    left:0px;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.large-folder .l_back:before{
+    content:'';
+    width:60px;
+    height:10px;
+    border-radius:4px 4px 0 0;
+    background-color:#FF8600;
+    position:absolute;
+    top:-10px;
+    left:0px;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.medium-folder .m_back:before{
+    content:'';
+    width:60px;
+    height:10px;
+    border-radius:4px 4px 0 0;
+    background-color:#FF0000;
+    position:absolute;
+    top:-10px;
+    left:0px;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.extra-large-folder .xl_back:before{
+    content:'';
+    width:60px;
+    height:10px;
+    border-radius:4px 4px 0 0;
+    background-color:#93bad8;
+    position:absolute;
+    top:-10px;
+    left:0px;
+    box-shadow:0 -1px 1px rgba(0,0,0,0.15);
+}
+
+.small-folder .s_back:after{
+    content:'';
+    width:100%;
+    height:4px;
+    border-radius:5px;
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    box-shadow:0 4px 8px #333;
+}
+
+.medium-folder .m_back:after{
+    content:'';
+    width:100%;
+    height:4px;
+    border-radius:5px;
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    box-shadow:0 4px 8px #333;
+}
+
+.large-folder .l_back:after{
+    content:'';
+    width:100%;
+    height:4px;
+    border-radius:5px;
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    box-shadow:0 4px 8px #333;
+}
+
+.extra-large-folder.xl_back:after{
+    content:'';
+    width:100%;
+    height:4px;
+    border-radius:5px;
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    box-shadow:0 4px 8px #333;
+}
+
+.small-folder.open .s_front{
+	
+    -moz-transform:rotateX(-50deg);
+    -webkit-transform:rotateX(-50deg);
+    transform:rotateX(-50deg);
+}
+
+.medium-folder.open .m_front{
+    -moz-transform:rotateX(-50deg);
+    -webkit-transform:rotateX(-50deg);
+    transform:rotateX(-50deg);
+}
+
+.large-folder.open .l_front{
+    -moz-transform:rotateX(-50deg);
+    -webkit-transform:rotateX(-50deg);
+    transform:rotateX(-50deg);
+}
+
+.extra-large-folder.open .xl_front{
+    -moz-transform:rotateX(-50deg);
+    -webkit-transform:rotateX(-50deg);
+    transform:rotateX(-50deg);
+}
+
+
+/*----------------------------
+	Draggable Icons
+-----------------------------*/
+
+#main img{
+	position:absolute;
+	cursor:move;
+}
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+	line-height: 1.4;
+	margin-top: 0;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
