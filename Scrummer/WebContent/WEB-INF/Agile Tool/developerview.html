@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<title>Agile Project Management</title>
+<link rel="stylesheet" type="text/css" href="css/custom.css" />
+<link rel="stylesheet" type="text/css" href="css/selectstyles.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/bootstrap-iso.css" />
+<script src="js/jquery-1.4.3.min.js"></script>
+<script src="js/script.js"></script>
+<!-- css -->
+</head>
+<body>
+    <!-- content -->
+
+	<div class="col-lg-12 dragging-info" id="dragInfo-affix" data-spy="affix" data-offset-top="430">
+        <p align="center">Developer's View</p>
+	</div>
+	<div style="padding-top:20px"></div>
+	<div class="class="form-group">
+	
+          <div class="col-sm-12">
+		       <div class="panel panel-default">  
+			   <div class="panel-heading">Panel heading</div>  
+			   <div class="table-responsive">
+			   <table id="my-table" class="table table-bordered"> <thead> <tr> 
+			   <th>Task Name</th>
+			   <th>Assigned By</th> 
+			   <th>Micro/Macro</th> 
+			   <th>% of Completion</th> 
+			   <th>Remarks</th>
+			   </tr> 
+			   </thead> 
+			   <tbody> <tr> 
+			   <th scope="row">T1</th> 
+			   <td>Mark</td> 
+			   <td class="editDrop">Micro</td> 
+			   <td class="editProgress">
+			     <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%
+                </div>
+                </div>
+			   </td> 
+			   <td class="editable">@mdo</td> 
+			   </tr> 
+			   <tr> 
+			   <th scope="row">T2</th> 
+			   <td>Jacob</td> 
+			   <td class="editDrop">Macro</td> 
+			    <td class="editProgress">
+				  <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%
+                </div>
+                </div>
+				</td> 
+			   <td class="editable">@fat</td> 
+			   </tr> <tr> 
+			   <th scope="row">T3</th> 
+			   <td>Larry</td> 
+			   <td class="editDrop">Micro</td>
+                <td class="editProgress">
+				<div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%
+                </div>
+                </div>
+				</td> 			   
+			   <td class="editable">@twitter</td> 
+			   </tr> 
+			   </tbody> 
+			   </table> 
+			   </div> 
+			   </div> 
+	      </div>
+   </div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //Loop through all Labels with class 'editable'.
+            $(".editable").each(function () {
+                //Reference the Label.
+                var label = $(this);
+
+                //Add a TextBox next to the Label.
+                label.after("<input type = 'text' style = 'display:none' />");
+
+                //Reference the TextBox.
+                var textbox = $(this).next();
+
+                //Set the name attribute of the TextBox.
+                textbox[0].name = this.id.replace("lbl", "txt");
+
+                //Assign the value of Label to TextBox.
+                textbox.val(label.html());
+
+                //When Label is clicked, hide Label and show TextBox.
+                label.click(function () {
+                    $(this).hide();
+                    $(this).next().show();
+                });
+
+                //When focus is lost from TextBox, hide TextBox and show Label.
+                textbox.focusout(function () {
+                    $(this).hide();
+                    $(this).prev().html($(this).val());
+                    $(this).prev().show();
+                });
+            });
+			
+			$(".editDrop").each(function () {
+                //Reference the Label.
+                var label = $(this);
+
+                //Add a TextBox next to the Label.
+                label.after("<select style = 'display:none' ><option value='micro'>micro</option><option value='macro'>macro</option></select>");
+
+                //Reference the TextBox.
+                var textbox = $(this).next();
+
+                //Set the name attribute of the TextBox.
+                textbox[0].name = this.id.replace("lbl", "txt");
+
+                //Assign the value of Label to TextBox.
+                textbox.val(label.html());
+
+                //When Label is clicked, hide Label and show TextBox.
+                label.click(function () {
+                    $(this).hide();
+                    $(this).next().show();
+                });
+                
+                //When focus is lost from TextBox, hide TextBox and show Label.
+                textbox.focusout(function () {
+                    $(this).hide();
+					
+                    $(this).prev().html($(this).val());
+                    $(this).prev().show();
+                });
+            });
+			$(".editProgress").each(function () {
+                //Reference the Label.
+                var label = $(this);
+
+                //Add a TextBox next to the Label.
+                label.after("<input type = 'number' id='code1' style = 'display:none' min='1' max='100' />");
+
+                //Reference the TextBox.
+                var textbox = $(this).next();
+              
+                //Set the name attribute of the TextBox.
+                textbox[0].name = this.id.replace("lbl", "txt");
+
+                //Assign the value of Label to TextBox.
+                textbox.val(label.html());
+                  
+                //When Label is clicked, hide Label and show TextBox.
+                label.click(function () {
+                    $(this).hide();
+                    $(this).next().show();
+                });
+
+                //When focus is lost from TextBox, hide TextBox and show Label.
+                textbox.focusout(function () {
+                    $(this).hide();
+					var barId="progressbar"+$(this).val();
+					var bar="<div class='progress'><div class='progress-bar' id="+barId+" role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width:"+$(this).val()+"%'>"+$(this).val()+"%</div></div>";					
+					$(this).prev().html(bar);
+                    $(this).prev().show();
+                });
+            });
+			
+        });
+		
+    </script>
+<!-- js --> 
+		
+</body>
+</html>

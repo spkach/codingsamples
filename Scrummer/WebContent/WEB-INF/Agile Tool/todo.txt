@@ -1,0 +1,9 @@
+1. Hierarchy Tree -story points
+	remove from tree - pending
+	restrict to only depth of 3   - done
+	after rearranging if new node is added tree collapses - done
+	adding some animation to tree - pending
+	user input whether story point,epic or backlog - pending
+2. Micro - macro
+3. Session - pending
+4. User allocation menu has to popup in upward direction for cards at bottom of screen  - pending

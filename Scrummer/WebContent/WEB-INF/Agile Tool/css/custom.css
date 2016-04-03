@@ -507,7 +507,7 @@ border-top-right-radius: 3px;
 
 #nextBtn{
 	position : absolute;
-	top : 450px;
+	top : 550px;
 	left : 200px;
 }
 
@@ -515,4 +515,10 @@ border-top-right-radius: 3px;
 	position : absolute;
 	top : 450px;
 	left : 500px;
+}
+
+#nextButton{
+	position : absolute;
+	top : 550px;
+	left : 550px;
 }
