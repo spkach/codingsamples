@@ -133,7 +133,7 @@ a.black{color: #000 !important;}
 .circles-ctn{
 	position:fixed;
 	height:100%;
-	top:52px ;
+	top:162px ;
 	right:0;
 	overflow:auto;
 	background-color:#EBEBEB;
@@ -221,8 +221,13 @@ margin: 16px 0 0 15px;
 	color: #f9532f;
 }
 .circle-left-ctn{
+	
+}
+
+.card-z-index{
 	z-index:8;
 }
+
 .circle-right-ctn{
 	padding:0;
 	overflow-y:auto;
@@ -344,7 +349,7 @@ margin: 16px 0 0 15px;
 }
 .drop-arrow-img{
 	position:absolute;
-	top: 40px;
+	top: 110px;
 	left: 60%;
 	width:200x;
 	height:40px;
@@ -521,4 +526,15 @@ border-top-right-radius: 3px;
 	position : absolute;
 	top : 550px;
 	left : 550px;
+}
+
+
+#sprintsDoneButton{
+	position : absolute;
+	top : 440px;
+	left : 500px;
+}
+
+.cardDesc{
+	padding-left : 10px;
 }

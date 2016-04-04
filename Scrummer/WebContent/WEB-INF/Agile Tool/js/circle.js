@@ -56,35 +56,6 @@ var clickFunction = function() {
     });
   });
 
-$( "#add-circle-form" ).dialog({
-	 open: function(event, ui) {  
-	  $('.ui-dialog-titlebar-close').addClass('ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only');
-    $('.ui-dialog-titlebar-close').append('<span>x</span><span class="ui-button-text">close</span>');                    
-       $('.ui-widget-overlay').click(function() {
-           $('#add-circle-form').dialog('close');
-       });
-   },
-   show: { effect: "slide", duration: 800 },
-   dialogClass: "add-circle-user",
-      autoOpen: false,
-	  resizable: false,
-      width: 350,
-      modal: true,
-      buttons:[
-            {
-               text: "Add",
-               "class": 'btn btn-primary',
-               click: function() {                     
-                
-               }
-            }
-          ]
-    });
-$( "#create-user" )
-      .button()
-      .click(function() {
-        $( "#add-circle-form" ).dialog( "open" );
-      });
 $(document).ready(function(e) {
 	$( ".close-btn" ).click(function() {
 		$(this).parents("li").fadeOut();
@@ -92,6 +63,13 @@ $(document).ready(function(e) {
 	$('#affixCircles').css({
 		 "width": circleWidth,
 		"height":circleHeight
+	});
+	
+	// Frame cards to be shown in UI
+	var cardsArray = fetchCards();
+	
+	$.each(cardsArray,function(index,card){
+		$('#circle-list-ul').append(card).children("li:last");
 	});
 	
 	$("#sprintDialog").dialog({
@@ -142,6 +120,7 @@ var outsideCircle = 0;
         },
 		stop: function(e, ui) {
             // reset group positions
+			$('#cardContainer').removeClass('card-z-index');
             $('.' + selectedClass).css({
                 top: 0,
                 left: 0
@@ -153,6 +132,9 @@ var outsideCircle = 0;
         drag: function(e, ui) {
             // set selected group position to main dragged object
             // this works because the position is relative to the starting position
+			
+			$('#cardContainer').addClass('card-z-index');
+			
             $('.' + selectedClass).css({
                 top: ui.position.top,
                 left: ui.position.left
@@ -183,6 +165,7 @@ over: function (event, ui) {
   },
 		drop: function( event, ui ) {
 			 var cloneItem = $(ui.draggable).clone().on('mousedown mouseup', function(e) {
+		
      	if (e.type == "mousedown") {
             lastClick = e.timeStamp; // get mousedown time
 		
@@ -214,7 +197,9 @@ over: function (event, ui) {
 		drop: function( event, ui ) {
 			dropped = true;
 			var cloneItem
-			
+						 
+		$('#cardContainer').removeClass('card-z-index');
+		var userImg = $(ui.helper).find('.estimate').remove();
 			
 		 if($('.' + selectedClass).length == 1){
                
@@ -581,3 +566,34 @@ $('#new-circle-form').on('click', function(){
       }, hideDelay);
   });
 });
+
+function fetchCards(){
+	var cardsArray =[];
+	var imgSrc1 = "img/bob.png";
+	var imgSrc2 = "img/chris.png";
+	var imgSrc3 = "img/claira.png";
+	var imgSrc4 = "img/rishi.png";
+	
+	var estimationRed  = "estimateShadeRed";
+	var estimationGreen  = "estimateShadeGreen";
+	var estimationBlue  = "estimateShadeBlue";
+	var estimationYellow  = "estimateShadeYellow";
+	var card1 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc1+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationRed+"'></div></div><div class='item-cell item-dec cardDesc'><h5>Create Login Screen</h5></div></div></div></div></li>";
+	var card2 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc2+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationGreen+"'></div></div><div class='item-cell item-dec cardDesc'><h5>Audit Screen</h5></div></div></div></div></li>";
+	var card3 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc3+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationYellow+"'></div></div><div class='item-cell item-dec cardDesc'><h5>Session Management</h5></div></div></div></div></li>";
+	var card4 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc4+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationRed+"'></div></div><div class='item-cell item-dec cardDesc'><h5>Database Integration</h5></div></div></div></div></li>";
+	var card5 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc1+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationBlue+"'></div></div><div class='item-cell item-dec cardDesc'><h5>Web Services</h5></div></div></div></div></li>";
+	var card6 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc2+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationGreen+"'></div></div><div class='item-cell item-dec cardDesc'><h5>Transformation Screen</h5></div></div></div></div></li>";
+	var card7 = "<li class='col-lg-4 col-md-4 circle-card left-drop-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc3+"' width='100%' height='100%'></span><div class='estimate'><div class='"+estimationYellow+"'></div></div><div class='item-cell item-dec cardDesc'><h5>DashBoard Functionality</h5></div></div></div></div></li>";
+		 
+			 
+	cardsArray.push(card1);
+	cardsArray.push(card2);
+	cardsArray.push(card3);
+	cardsArray.push(card4);
+	cardsArray.push(card5);
+	cardsArray.push(card6);
+	cardsArray.push(card7);
+	
+	return cardsArray;
+}

@@ -1,30 +1,61 @@
 <!doctype html>
-<html>
+<html lang="en" class="no-js">
 <head>
-<title>Agile Project Management</title>
-<meta name="description" content="Project content" />
-<meta name="viewport" content="width=device-width, user-scalable=no" />
-<link rel="shortcut icon" href="img/favicon.ico" />
-<link rel="apple-touch-icon" href="media/img/base/apple-touch-icon.png" />
-<!-- font-awesome font -->
-<link rel="stylesheet" href="fonts/font-awesome.css" type="text/css" media="screen">
-<!-- css -->
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="css/custom.css" />
-<link href="css/jquery.contextMenu.css" rel="stylesheet" type="text/css" />
-<!-- css -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/bouncymenustyle.css"> <!--Bouncy Menu style -->
+	<link rel="stylesheet" href="css/rotatingmenustyle.css"> <!-- Rotating Menu  style -->
+	<link rel="stylesheet" type="text/css" href="css/custom.css" />
+	<link rel="stylesheet" type="text/css" href="css/selectstyles.css" />
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="js/validator.js"></script> <!-- Validator -->
+	
+	<!-- Multi Select Tag Field -->
+	<link rel="stylesheet" href="css/fm.selectator.jquery.css"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/fm.selectator.jquery.js"></script>
+	<!-- MultiSelect Tag Field -->
+	
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-iso.css" />
+	<link href="css/jquery.contextMenu.css" rel="stylesheet" type="text/css" />
+	<!-- css -->
 
+  	
+	<title>Agile Project Management</title>
 </head>
 <body>
-<!--[if lte IE 8]>
-	    <div id="browser-status">	
-		    Dear Web User, your browser is out of date! <a href="http://browsehappy.com/" target="_blank">
-          Please Upgrade Your Browser
-        </a>
-	    </div>
-	<![endif]--> 
-
+	
+	<div class="col-lg-12 dragging-info" id="dragInfo-affix" data-spy="affix" data-offset-top="430">
+        <p align="center">Sprint Allocation<span class="drop-arrow-img">
+        <img src="img/dropArrow.png" width="100%" height="100%"></span></p>
+	</div>
+	
+	<header class="cd-header">
+		<a href="#0" class="cd-3d-nav-trigger">
+			Menu
+			<span></span>
+		</a>
+	</header> <!-- .cd-header -->
+	
+	<div class="cd-bouncy-nav-modal">
+	<nav>
+		<ul class="cd-bouncy-nav">
+			<li><a href="sample2.html">Projects</a></li>
+			<li><a href="#0">DashBoard</a></li>
+			<li><a href="#0">View</a></li>
+			<li><a href="#0">LogOut</a></li>
+			<li><a href="#0">About</a></li>
+			<li><a href="#0">LastVisited</a></li>
+		</ul>
+	</nav>
+	
+	<a href="#0" class="cd-close">Close modal</a>
+	</div> <!-- cd-bouncy-nav-modal -->
+	
+<div class="bootstrap-iso">
 <!-- OVERALL PAGE WRAP -->
 <div id="wrap"> 
   <!-- MAIN-WRAPPER -->
@@ -34,158 +65,16 @@
     <div class="content" >
     <div class="col-lg-12" >
      	<div class="row">
-        <div class="col-lg-12 dragging-info" id="dragInfo-affix" data-spy="affix" data-offset-top="430">
-        <p class="m-0 text-center">Drag backlogs to sprint circles<span class="drop-arrow-img">
-        <img src="img/dropArrow.png" width="100%" height="100%"></span></p>
-        </div>
-     	<div class="circle-left-ctn col-lg-8 col-md-8">
+     	<div class="circle-left-ctn col-lg-8 col-md-8" id="cardContainer">
         <div class="row">
-        	<ul class="circle-list-ul clearfix" id="circle-list-ul">
-            	<li class="col-lg-4 col-md-4">
-                	<div class="circle-bdr">
-                	<div class="circle-list-item add-user">
-                		<span class="add-user-icon"><i class="fa fa-user fa-2x add"></i></span>
-               			<h5 id="create-user" class="d-in-blk">Add BackLog</h5>
-                    </div>
-                    </div>
-                 </li>
-                 <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Create Login Screen</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-               <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>DashBoard Functionality</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-                <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Audit</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-                <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Session Management</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-                <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Transformations Screen</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-                <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Registration Screen</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-                <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Report Generation</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li><li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>Data Load Functionality</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li>
-                <li class="col-lg-4 col-md-4 circle-card left-drop-card">
-                 	<div class="circle-bdr">
-                		<div class="circle-list-item drag-cursor personPopupTrigger" rel="4218,a17bee64-8593-436e-a2f8-599a626370df">
-                    		<span class="fa fa-times  close-btn"></span>
-                    		<div class="list-row">
-                				<span class="item-cell" href="#">
-        							<img src="img/photo.png" alt="" width="100%" height="100%">
-      							</span>
-                   				<div class="item-cell item-dec">
-    								<h5>External Files</h5>
-                        			</div>
-                     		</div>
-                    	</div>
-                    </div>
-                </li> 
+        	<ul class="circle-list-ul clearfix" id="circle-list-ul"> 
             </ul>
-            </div>
+		</div>
+		<button class="btn btn-primary btn-lg btn-success" type="submit" id="sprintsDoneButton">
+			Done
+	    </button>
         </div>
+		
 	<div class="circles-ctn" id="affixCircles">
         <div class="circle-right-ctn ">
        
@@ -239,25 +128,15 @@
     </div>
     </div>
     </div>
-    <!--/ content --> 
-    <div id="sprintDialog">
-		<iframe id="myIframe"></iframe>
-	</div>
+  
   </div>
   <!--/ MAIN-WRAPPER --> 
 </div>
 <!--/ OVERALL PAGE WRAP --> 
-
-<div id="add-circle-form" title="Create new BackLog">
- 
-  <form>
-  <fieldset >
-    <label for="name">Add BackLog Desc</label>
-    <input type="text" name="name" id="tags" class="form-control">
-  </fieldset>
-  </form>
 </div>
-<!-- js --> 
+	
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+
 <script type="text/javascript" src="js/jquery.js"></script> 
 <script type="text/javascript" src="js/jquery-ui.min-1.9.1.js"></script> 
 <script type="text/javascript" src="js/bootstrap.js"></script> 
@@ -266,6 +145,5 @@
 <script type="text/javascript" src="js/jquery.path.js"></script>
 <script type="text/javascript" src="js/circle.js"></script>
 <link href="css/jquery-ui-1.9.1.css" rel="stylesheet" type="text/css" />
-<script src=""></script>
 </body>
 </html>

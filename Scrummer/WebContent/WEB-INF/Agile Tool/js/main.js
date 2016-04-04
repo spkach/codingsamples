@@ -45,6 +45,7 @@ jQuery(document).ready(function($){
 	var is_bouncy_nav_animating = false;
 	//open bouncy navigation
 	$('.cd-3d-nav-trigger').on('click', function(){
+		$('#cardContainer').removeClass('card-z-index');
 		triggerBouncyNav(true);
 	});
 	//close bouncy navigation
