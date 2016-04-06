@@ -1,8 +1,10 @@
 $(document).ready(function()
 {
    var data_index=0;
+     
     $("#storyAddBtn").click(function(){
         var value=$("#storyPointTitle").val();
+		
 		data_index++;
 		var htmlData="<li class='dd-item' data-id="+data_index+"><div class='dd-handle'>"+value+"</div><span class='fa fa-times close-btn' id='close-story'></span></li>";
 		$("#dd-list").append(htmlData);
@@ -11,6 +13,8 @@ $(document).ready(function()
 	$( ".close-btn" ).click(function() {
 		$(this).parents("li").fadeOut();
 	});
+	
+	
 	
 	$('#storyPointDesc , #storyPointTitle').bind('input propertychange',function(){
 		var descVal = $('#storyPointDesc').val();

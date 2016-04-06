@@ -22,14 +22,14 @@
 
 	<!-- Inline CSS based on choices in "Settings" tab -->
 	<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
-
+   <script src="js/jquerysession.js"></script>
 	<script src="js/main.js"></script> <!-- Resource jQuery -->
     </head>
     <body>
 		<div class="col-lg-12 dragging-info" id="dragInfo-affix" data-spy="affix" data-offset-top="430">
 			<p align="center">Capture Project BackLogs</p>
 		</div>
-		
+		<p id="hello"></p>
 		<header class="cd-header">
 			<a href="#0" class="cd-3d-nav-trigger">
 				Menu
@@ -55,9 +55,6 @@
 			<form id = "projectForm" role="form" data-toggle="validator" method = "post">
 				<textarea id="txt1" placeholder="Enter Back Logs Info"></textarea>
 				<button type="button" id="moveitButton" class="btn btn-primary disabled">Add</button>
-				<button class="btn btn-primary btn-lg btn-success" type="submit" id="doneBtn">
-					Done
-				</button>
 			</form>
 		</div>
 		

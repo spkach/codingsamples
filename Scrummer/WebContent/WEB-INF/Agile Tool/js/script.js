@@ -130,20 +130,55 @@ function initializeUserDropDown(select){
 
 function fetchCards(){
 	var cardsArray =[];
+	var tasks=[];
+	var tasksNames=[];
+	var tasksValues=[];
 	var imgSrc = "img/photo.png";
 	var estimationRed  = "estimateShadeRed";
 	var estimationGreen  = "estimateShadeGreen";
 	var estimationBlue  = "estimateShadeBlue";
 	var estimationYellow  = "estimateShadeYellow";
-	var card1 = "<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationRed+"'></div><div class='item-cell item-dec'><h5>Create Login Screen</h5></div><span class='user-list' id='userList'><select id='fancySelect1' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";
-	var card2 = "<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationGreen+"'></div><div class='item-cell item-dec'><h5>Audit Screen</h5></div><span class='user-list' id='userList'><select id='fancySelect2' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";
-	var card3 = "<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationYellow+"'></div><div class='item-cell item-dec'><h5>Session Management</h5></div><span class='user-list' id='userList'><select id='fancySelect3' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";
-	var card4 = "<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationRed+"'></div><div class='item-cell item-dec'><h5>Database Integration</h5></div><span class='user-list' id='userList'><select id='fancySelect4' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";
-	var card5 = "<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationBlue+"'></div><div class='item-cell item-dec'><h5>Web Services</h5></div><span class='user-list' id='userList'><select id='fancySelect5' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";
-	cardsArray.push(card1);
-	cardsArray.push(card2);
-	cardsArray.push(card3);
-	cardsArray.push(card4);
-	cardsArray.push(card5);
+	var taskValue=$.session.get("taskValue");
+	var taskName=$.session.get("taskName");
+	var task=$.session.get("tasks");
+	if(task.indexOf(",")>=0){
+	  tasks=task.split(",");	
+	}
+	else{
+		tasks.push(task);
+	}
+	if(taskName.indexOf(",")>=0){
+	  tasksNames=taskName.split(",");	
+	}
+	else{
+		tasksNames.push(taskName);
+	}
+	if(taskValue.indexOf(",")>=0){
+	  tasksValues=taskValue.split(",");	
+	}
+	else{
+		tasksValues.push(taskValue);
+	}
+    for(i=0;i<tasks.length;i++){
+		if(tasksValues[i]==="1"){
+		  var card="<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationRed+"'></div><div class='item-cell item-dec'><h5>"+tasksNames[i]+"</h5></div><span class='user-list' id='userList'><select id='fancySelect"+i+"' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";	
+          cardsArray.push(card);		
+		}
+		else if(tasksValues[i]==="2"){
+			alert(tasksValues[i]);
+			var card="<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationGreen+"'></div><div class='item-cell item-dec'><h5>"+tasksNames[i]+"</h5></div><span class='user-list' id='userList'><select id='fancySelect"+i+"' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";	
+            cardsArray.push(card);
+		}
+		else if(tasksValues[i]==="3"){
+			alert(tasksValues[i]);
+			var card="<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationBlue+"'></div><div class='item-cell item-dec'><h5>"+tasksNames[i]+"</h5></div><span class='user-list' id='userList'><select id='fancySelect"+i+"' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";	
+            cardsArray.push(card);
+		}
+		else if(tasksValues[i]==="4"){
+			alert(tasksValues[i]);
+			var card="<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationYellow+"'></div><div class='item-cell item-dec'><h5>"+tasksNames[i]+"</h5></div><span class='user-list' id='userList'><select id='fancySelect"+i+"' class='makeMeFancy'><option value='1' data-icon='img/chris.png' data-html-text='US&lt;i&gt;Chris&lt;/i&gt;'>&#9660;</option><option value='2' data-icon='img/bob.png' data-html-text='Singapore &lt;i&gt;Bob&lt;/i&gt;'>&#9660;</option><option value='3' data-icon='img/claira.png' data-html-text='US&lt;i&gt;Claira&lt;/i&gt;'>&#9660;</option><option value='4' data-icon='img/rishi.png' data-html-text='India&lt;i&gt;Rishi&lt;/i&gt;'>&#9660;</option></select></span></div></div></div></li>";	
+            cardsArray.push(card);
+		}
+	}
 	return cardsArray;
 }

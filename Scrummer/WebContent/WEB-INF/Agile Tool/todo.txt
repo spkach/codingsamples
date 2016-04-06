@@ -7,3 +7,15 @@
 2. Micro - macro
 3. Session - pending
 4. User allocation menu has to popup in upward direction for cards at bottom of screen  - pending
+
+6-Apr
+1. Only level 3 cards are picked , all the level cards should be picked. - pending
+2.In estimation screen,after all cards are dragged n dropped,movement should happen slowly - pending
+3.On click of 'M' button popup opens, it should blow up the text.The animation is not proper.
+4.Popup should open only on click of card only.
+5.Popup Should be full screen and title and button name text to be changed.
+6.on click of next card,the pop up opening should be empty.
+7. User allocation menu has to popup in upward direction for cards at bottom of screen  - pending
+8. remove from tree
+9. user input whether story point,epic or backlog - pending
+10.Move the micor/macro decision to allocation screen - pending

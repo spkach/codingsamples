@@ -14,7 +14,17 @@ $(function() {
 		
 		var extra_large_folder = $("#xl_main .extra-large-folder");
 		var xl_front = extra_large_folder.find('.xl_front');
-
+		
+        var smallStories=[];
+		var mediumStories=[];
+		var largeStories=[];
+		var xlargeStories=[];
+		
+		$.session.set("small",smallStories);
+		$.session.set("medium",mediumStories);
+		$.session.set("large",largeStories);
+		$.session.set("xlarge",xlargeStories);
+		
 		s_front.text('S');
 		m_front.text('M');
 		l_front.text('L');
@@ -24,6 +34,32 @@ $(function() {
         clickDelay = 600,
         // click time (milliseconds)
         lastClick, diffClick; // timestamps
+		
+		/*Session Management*/
+		 var storys=$.session.get("storyPoints");
+		 var storypoints =[];
+		 if(storys.indexOf(",")>=0){
+			 storypoints = storys.split(',');
+		 }
+		 else{
+			 storypoints.push(storys);
+		 }
+	     var count=0;
+		 var length=0;
+		 length=storypoints.length;
+		 
+		 var cardsArray =[];
+	     var imgSrc = "img/photo.png";
+		 $.each(storypoints, function(key,val) {
+
+            var str="<li class='col-md-5 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' alt='' width='100%' height='100%'></span><div class='item-cell item-dec'><h5>"+val+"</h5></div></div></div></div></li>";
+			cardsArray.push(str);        
+		 });
+		 $.each(cardsArray,function(index,card){
+		   $('#circle-list-ul').append(card).children("li:last");
+	     });
+		
+		/*Session Management*/
 		
 		$( ".close-btn" ).click(function() {
 			$(this).parents("li").fadeOut();
@@ -83,6 +119,11 @@ $(function() {
 			// Remove the dragged icon
 			dropped = true;
 			ui.draggable.remove();
+			smallStories.push(ui.draggable.text());
+			count++;
+			if(count>=length){
+				showCards();
+			}
 			small_folder.removeClass('open');
 			$('body').css('cursor', 'auto');
 		},
@@ -104,6 +145,11 @@ $(function() {
 			
 			// Remove the dragged icon
 			ui.draggable.remove();	
+			mediumStories.push(ui.draggable.text());
+			count++;
+			if(count>=length){
+				showCards();
+			}
 			medium_folder.removeClass('open');
 			$('body').css('cursor', 'auto');
 		},
@@ -125,6 +171,11 @@ $(function() {
 			
 			// Remove the dragged icon
 			ui.draggable.remove();	
+			largeStories.push(ui.draggable.text());
+			count++;
+			if(count>=length){
+				showCards();
+			}
 			large_folder.removeClass('open');
 			$('body').css('cursor', 'auto');
 		},
@@ -146,6 +197,11 @@ $(function() {
 			
 			// Remove the dragged icon
 			ui.draggable.remove();
+			xlargeStories.push(ui.draggable.text());
+			count++;
+			if(count>=length){
+				showCards();
+			}
 			extra_large_folder.removeClass('open');
 			$('body').css('cursor', 'auto');
 		},
@@ -161,4 +217,111 @@ $(function() {
 			dropped = false;
 		}
 	});
+	function showCards(){
+		var cardsArray1 =fetchCards(); 
+		 $.each(cardsArray1,function(index,card){
+		    $('#circle-list-ul-Est').append(card).children("li:last");
+			 $("#storyPoints").hide();
+			 $("#storyPointsWithEstimation").show();
+	     });
+		 
+		 $("#macro").click(function(){
+			 $(this).next().css( 'font-size','17px' );
+		 });
+		 $(".toggler").click( function() {
+			$me = $(this);
+			$me.toggleClass('off');
+			
+			if($me.is(".off")){
+				 $(this).next().css( 'font-size','17px' );
+				  $(this).next().css( 'background-color','#eed5b7' );
+				   $(this).next().css( 'color','#0000ee' );
+				   
+			}else {
+				 $(this).next().css( 'font-size','14px' );
+				 $(this).next().css( 'background-color','#fff' );
+				  $(this).next().css( 'color','black' );
+			}
+		});
+		
+		$(".circle-bdr").click(function(){
+           var cardd=$(this).find("h5").text();	
+		   var color=['estimationRed','estimationGreen','estimationBlue','estimationYellow'];
+		   var c=$(this).html();
+           var col=$(this).find("p").text();			   
+		   $.session.set("cardd",cardd);
+		   $.session.set("color",col);
+		  
+		   
+		   
+			$("#myModal").modal({
+				backdrop: 'static',
+				keyboard: true
+			});
+	    });
+	
+		$(".show-text").click(function(){
+			$('#myModal').find(".lots-of-text").toggle();
+			$('#myModal').modal('handleUpdate');
+		});
+		
+		$('#myModal').on('show.bs.modal', function () {
+			$('.modal-content').css('height',$( window ).height()*0.8);
+			$('.modal-body').css('height',$( window ).height()*0.6);
+		});
+	}
+	function fetchCards(){
+			var cardsArray =[];
+			 var small=$.session.get("small");
+			 var meduim=$.session.get("medium");
+			 var large=$.session.get("large");
+			 var xlarge=$.session.get("xlarge");
+			
+			 var s=[];
+			 var m=[];
+			 var l=[];
+			 var xl=[];
+			 
+		      
+			 
+			  var cardsArray =[];
+			  
+			var imgSrc = "img/photo.png";
+			var estimationRed  = "estimateShadeRed";
+			var estimationGreen  = "estimateShadeGreen";
+			var estimationBlue  = "estimateShadeBlue";
+			var estimationYellow  = "estimateShadeYellow";
+			
+				$.each(small, function(key,val) {
+					var str="<li class='col-md-6 circle-card'><div class='circle-bdr'><div class='circle-list-item'><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationRed+"'></div><div class='item-cell item-dec'><input type='button' class='toggler' id='macro' style='margin-top:-17px;margin-left:120px' value='M'><h5>"+val+"</h5><p style='display:none'>1</p></div></div></div></div></div></div></li>";
+					cardsArray.push(str);        
+			    });
+			
+			
+				$.each(meduim, function(key,val) {
+					var str="<li class='col-md-6 circle-card' ><div class='circle-bdr'><div class='circle-list-item' ><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationGreen+"'></div><div class='item-cell item-dec'><input type='button' class='toggler' id='macro' style='margin-top:-17px;margin-left:120px' value='M'><h5>"+val+"</h5><p style='display:none'>2</p></div></div></div></div></div></div></li>";
+					cardsArray.push(str);        
+			    });
+			
+			
+				$.each(large, function(key,val) {
+					var str="<li class='col-md-6 circle-card' ><div class='circle-bdr'><div class='circle-list-item' ><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationBlue+"'></div><div class='item-cell item-dec'><input type='button' class='toggler' id='macro' style='margin-top:-17px;margin-left:120px' value='M'><h5>"+val+"</h5><p style='display:none'>3</p></div></div></div></div></div></div></li>";
+					cardsArray.push(str);        
+			    });
+			
+			
+			  $.each(xlarge, function(key,val) {
+					var str="<li class='col-md-6 circle-card' ><div class='circle-bdr'><div class='circle-list-item' ><span class='fa fa-times close-btn'></span><div class='list-row'><span class='item-cell' href='#'><img src='"+imgSrc+"' width='100%' height='100%'></span><div class='"+estimationYellow+"'></div><div class='item-cell item-dec'><input type='button' class='toggler' id='macro' style='margin-top:-17px;margin-left:120px' value='M'><h5>"+val+"</h5><p style='display:none'>4</p></div></div></div></div></div></div></li>";
+					cardsArray.push(str);        
+			    });
+		
+			    $.each(cardsArray,function(index,card){
+			      $('#circle-list-ul').append(card).children("li:last");
+			    });
+			return cardsArray;
+      }
+	  function checkDel(value){
+		 
+	  }
+	 
 });

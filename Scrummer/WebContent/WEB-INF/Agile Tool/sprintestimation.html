@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/custom.css" />
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 	<script src="js/validator.js"></script> <!-- Validator -->
+	<script src="js/jquery-1.11.1.min.js"></script>
 	
 	<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
 	<link rel="stylesheet" href="css/bootstrap-iso.css" /> 
@@ -32,7 +33,7 @@
 	<script src="js/jquery.ui.position.js" type="text/javascript"></script>
 	<script src="js/jquery.contextMenu.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/jquery.path.js"></script>
-	<script type="text/javascript" src="js/sprint-estimate.js"></script>
+	
 	<!-- Estimation Folder -->
 
   	
@@ -69,101 +70,13 @@
 	
 	<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
 		<form id = "projectForm" role="form" data-toggle="validator" method = "post">
+		<div id="storyPoints" style="visibility:visible">
 		<div class="bootstrap-iso">
 			<div class="col-lg-6 col-md-6">
 			<ul class="circle-list-ul clearfix" id="circle-list-ul">
-				<li class="col-md-5 circle-card">
-					<div class="circle-bdr">
-						<div class="circle-list-item">
-							<span class="fa fa-times close-btn"></span>
-							<div class="list-row">
-								<span class="item-cell" href="#">
-									<img src="img/photo.png" alt="" width="100%" height="100%">
-								</span>
-								<div class="item-cell item-dec">
-									<h5>Create Login Screen</h5>
-									</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-5 circle-card">
-					<div class="circle-bdr">
-						<div class="circle-list-item">
-							<span class="fa fa-times  close-btn"></span>
-							<div class="list-row">
-								<span class="item-cell" href="#">
-									<img src="img/photo.png" alt="" width="100%" height="100%">
-								</span>
-								<div class="item-cell item-dec">
-									<h5>DashBoard Functionality</h5>
-									</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-5 circle-card">
-					<div class="circle-bdr">
-						<div class="circle-list-item">
-							<span class="fa fa-times  close-btn"></span>
-							<div class="list-row">
-								<span class="item-cell" href="#">
-									<img src="img/photo.png" alt="" width="100%" height="100%">
-								</span>
-								<div class="item-cell item-dec">
-									<h5>Audit</h5>
-									</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-5 circle-card">
-					<div class="circle-bdr">
-						<div class="circle-list-item">
-							<span class="fa fa-times  close-btn"></span>
-							<div class="list-row">
-								<span class="item-cell" href="#">
-									<img src="img/photo.png" alt="" width="100%" height="100%">
-								</span>
-								<div class="item-cell item-dec">
-									<h5>Session Management</h5>
-									</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-5 circle-card">
-					<div class="circle-bdr">
-						<div class="circle-list-item">
-							<span class="fa fa-times  close-btn"></span>
-							<div class="list-row">
-								<span class="item-cell" href="#">
-									<img src="img/photo.png" alt="" width="100%" height="100%">
-								</span>
-								<div class="item-cell item-dec">
-									<h5>Registration Screen</h5>
-									</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-5 circle-card">
-					<div class="circle-bdr">
-						<div class="circle-list-item">
-							<span class="fa fa-times  close-btn"></span>
-							<div class="list-row">
-								<span class="item-cell" href="#">
-									<img src="img/photo.png" alt="" width="100%" height="100%">
-								</span>
-								<div class="item-cell item-dec">
-									<h5>Transformations Screen</h5>
-									</div>
-							</div>
-						</div>
-					</div>
-				</li>
+				
 			</ul>
-		</div>
+		   </div>
 
 		<div id="s_main">
 			<div class="small-folder">
@@ -201,7 +114,41 @@
 			  </div>
 		    </div>
 		</div>
-		</form>
+		</div>
+	<div id="storyPointsWithEstimation" style="display:none">
+	   <div class="bootstrap-iso">
+			<div class="col-lg-6 col-md-6">
+				<ul class="circle-list-ul clearfix" id="circle-list-ul-Est">
+					
+				</ul>
+		    </div>
+			<div class="col-lg-6 col-md-6" style="display:none">
+			   <div class="bootstrap-iso">
+					<form id = "projectForm" role="form" data-toggle="validator" method = "post">
+						<textarea id="txt1" placeholder="Enter Back Logs Info"></textarea>
+						<button type="button" id="moveitButton" class="btn btn-primary disabled">Add</button>
+						<button class="btn btn-primary btn-lg btn-success" type="submit" id="doneBtn">
+							Done
+						</button>
+					</form>
+		   </div>
+		
+				<div class="row" id="rightSection">
+					<ul class="circle-list-ul clearfix" id="circle-list-ul"></ul>
+				</div>
+			</div>
+			<div class="form-group">
+			  <div>
+			   <button class="btn btn-primary btn-lg btn-success" type="submit" id="nextBtn">
+				Next
+			   </button>
+			  </div>
+		    </div>
+			
+	   </div>
+	   
+	</div>
+	</form>
 	</main>
 	
 	<nav class="cd-3d-nav-container">
@@ -230,8 +177,42 @@
 
 		<span class="cd-marker color-1"></span>	
 	</nav> <!-- .cd-3d-nav-container -->
-
+ <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Re-adjustable Modal</h4>
+                </div>
+                <div class="modal-body">
+					<iframe src="summary.html" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe>  
+				</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, I got it</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 
+<link rel="stylesheet" type="text/css" href="css/selectstyles.css" />
+
+<script src="js/jquerysession.js"></script>
+<script type="text/javascript" src="js/sprint-estimate.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style type="text/css">
+.bs-example{
+	margin: 20px;
+}
+.lots-of-text{
+    display: none;
+}
+.modal-dialog{
+width:100%;
+}
+</style>
 </body>
 </html>

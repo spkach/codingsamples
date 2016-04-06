@@ -5,7 +5,8 @@
 ;(function($, window, document, undefined)
 {
     var hasTouch = 'ontouchstart' in document;
-
+    var storypoints=[];
+	
     /**
      * Detect CSS pointer-events property
      * events are normally disabled on the dragging element to avoid conflicts
@@ -282,6 +283,7 @@
                 depth = $(items[i]).parents(this.options.listNodeName).length;
                 if (depth > this.dragDepth) {
                     this.dragDepth = depth;
+					
                 }
             }
         },
@@ -355,6 +357,7 @@
             /**
              * move horizontal
              */
+			
             if (mouse.dirAx && mouse.distAxX >= opt.threshold) {
                 // reset move distance on x-axis for new phase
                 mouse.distAxX = 0;
@@ -366,15 +369,22 @@
                     list = prev.find(opt.listNodeName).last();
                     // check if depth limit has reached
                     depth = this.placeEl.parents(opt.listNodeName).length;
+					
+						
+					
                     if (depth + this.dragDepth <= opt.maxDepth) {
                         // create new sub-level if one doesn't exist
+						 
                         if (!list.length) {
+							
                             list = $('<' + opt.listNodeName + '/>').addClass(opt.listClass);
                             list.append(this.placeEl);
                             prev.append(list);
                             this.setParent(prev);
                         } else {
                             // else append to next level up
+							
+							
                             list = prev.children(opt.listNodeName).last();
                             list.append(this.placeEl);
                         }
@@ -428,9 +438,11 @@
                 }
                 // check depth limit
                 depth = this.dragDepth - 1 + this.pointEl.parents(opt.listNodeName).length;
+				
                 if (depth > opt.maxDepth) {
                     return;
                 }
+				
                 var before = e.pageY < (this.pointEl.offset().top + this.pointEl.height() / 2);
                     parent = this.placeEl.parent();
                 // if empty create new list to replace empty placeholder
@@ -440,9 +452,11 @@
                     this.pointEl.replaceWith(list);
                 }
                 else if (before) {
+					
                     this.pointEl.before(this.placeEl);
                 }
                 else {
+					
                     this.pointEl.after(this.placeEl);
                 }
                 if (!parent.children().length) {
